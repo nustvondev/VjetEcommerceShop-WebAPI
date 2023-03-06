@@ -95,10 +95,6 @@
       <Project>{c66926e8-0113-4b7b-97ee-5a30e466350e}</Project>
       <Name>VjetEcommerce.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VjetEcommerce.Web\VjetEcommerce.Web.csproj">
-      <Project>{87fcd734-958f-4091-8536-08abd69d3752}</Project>
-      <Name>VjetEcommerce.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
