@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VjetEcommerce.Model.Abstract;
 
 namespace VjetEcommerce.Model.Models
@@ -30,11 +25,12 @@ namespace VjetEcommerce.Model.Models
         [MaxLength(256)]
         public string Image { set; get; }
 
+        [Column(TypeName = "xml")]
+        public string MoreImages { set; get; }
+
         public decimal Price { set; get; }
 
-
         public decimal? PromotionPrice { set; get; }
-
 
         public int? Warranty { set; get; }
 
@@ -52,6 +48,5 @@ namespace VjetEcommerce.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { set; get; }
-
     }
 }
