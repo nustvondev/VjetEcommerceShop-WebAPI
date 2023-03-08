@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VjetEcommerce.Model.Models;
 
 namespace VjetEcommerce.Data
 {
-    public class VjetEcommerceDbContext: DbContext
-    { 
-    
+    public class VjetEcommerceDbContext : IdentityDbContext<ApplicationUser>
+    {
         public VjetEcommerceDbContext() : base("VjetEcommerceConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
-
 
         public DbSet<Footer> Footers { set; get; }
         public DbSet<Menu> Menus { set; get; }
@@ -37,14 +30,18 @@ namespace VjetEcommerce.Data
 
         public DbSet<Tag> Tags { set; get; }
 
-
         public DbSet<Error> Errors { set; get; }
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
 
+        public static VjetEcommerceDbContext Create()
+        {
+            return new VjetEcommerceDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-           
-
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }

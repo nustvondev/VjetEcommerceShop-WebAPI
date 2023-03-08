@@ -16,17 +16,21 @@ using VjetEcommerce.Data.Infrastructure;
 using VjetEcommerce.Data.Repositories;
 using VjetEcommerce.Service;
 using VjetEcommerce.Data;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security.DataProtection;
+using VjetEcommerce.Model.Models;
 
 [assembly: OwinStartup(typeof(VjetEcommerce.Web.App_Start.Startup))]
 
 namespace VjetEcommerce.Web.App_Start
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigAutofac(app);
+                ConfigureAuth(app);
         }
         private void ConfigAutofac(IAppBuilder app) {
             var builder = new ContainerBuilder();
@@ -39,7 +43,14 @@ namespace VjetEcommerce.Web.App_Start
 
             builder.RegisterType<VjetEcommerceDbContext>().AsSelf().InstancePerRequest();
 
-           
+
+            //Asp.net Identity
+            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
+            builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
+
 
 
             // Repositories
