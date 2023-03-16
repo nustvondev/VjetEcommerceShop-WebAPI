@@ -1,6 +1,10 @@
 ﻿/// <reference path="../assets/admin/libs/angular/angular.js" />
 (function () {
-    angular.module("vjetecommerce", ['vjetecommerce.products','vjetecommerce.common']).config(config);
+    angular.module('vjetecommerce',
+        ['vjetecommerce.products',
+            'vjetecommerce.product_categories',
+            'vjetecommerce.common'])
+        .config(config);
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {

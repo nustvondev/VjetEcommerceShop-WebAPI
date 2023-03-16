@@ -234,22 +234,22 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Layout Options
+                                    Sản Phẩm
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right">6</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../layout/top-nav.html" class="nav-link">
+                                    <a ui-sref="product_categories" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation</p>
+                                        <p>Danh mục sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a ui-sref="products" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation + Sidebar</p>
+                                        <p>Sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -859,14 +859,17 @@
     <!-- AdminLTE App -->
     <script src="/Assets/admin/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="/Assets/admin/js/demo.js"></script>
+    @*<script src="/Assets/admin/js/demo.js"></script>*@
     <!-- Angularjs -->
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="~/app/shared/modules/vjetecommerce.common.js"></script>
-    <script src="~/app/app.js"></script>
-    <script src="~/app/components/home/homeController.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/components/products/products.module.js"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/components/product_categories/productCategories.module.js"></script>
+    <script src="~/app/components/home/homeController.js"></script>
+    <script src="~/app/components/product_categories/productCategoryListController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productListController.js"></script>
 </body>
