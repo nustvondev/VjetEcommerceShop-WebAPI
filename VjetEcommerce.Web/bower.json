@@ -4,9 +4,10 @@
   "dependencies": {
     "angular": "~1.8.2",
     "angular-ui-router": "1.0.7",
-    "jquery": "3.6.0",
+    "jquery": "2.2.4",
     "bootstrap": "4.6.1",
-    "Font-Awesome": "5.15.4"
+    "Font-Awesome": "5.15.4",
+    "toastr": "2.1.3"
 
   }
 }
