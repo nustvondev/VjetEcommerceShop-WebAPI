@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module("vjetecommerce.common", ['ui.router'])
+    angular.module("vjetecommerce.common", ['ui.router', 'ngBootbox'])
 })();
