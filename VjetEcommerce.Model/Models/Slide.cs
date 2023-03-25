@@ -23,8 +23,11 @@ namespace VjetEcommerce.Model.Models
         [MaxLength(256)]
         public string Url { set; get; }
 
+        public int? DisplayOrder { set; get; }
+
         public bool Status { set; get; }
 
 
+        public string Content { set; get; }
     }
 }

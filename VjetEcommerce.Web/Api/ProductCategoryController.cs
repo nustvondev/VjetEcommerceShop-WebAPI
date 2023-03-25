@@ -15,6 +15,7 @@ using VjetEcommerce.Web.Models;
 namespace VjetEcommerce.Web.Api
 {
     [RoutePrefix("api/productcategory")]
+    [Authorize]
     public class ProductCategoryController : ApiControllerBase
     {
         #region init service

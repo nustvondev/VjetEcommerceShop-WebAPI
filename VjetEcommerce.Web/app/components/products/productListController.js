@@ -90,7 +90,7 @@
                     pageSize: 20
                 }
             }
-            apiService.get('/api/product/getall', config, function (result) {
+            apiService.get('/api/product/getall', config.params, function (result) {
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }

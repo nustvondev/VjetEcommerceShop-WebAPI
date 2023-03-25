@@ -78,6 +78,7 @@ namespace VjetEcommerce.Web.Infrastructure.Extensions
             product.PromotionPrice = productVm.PromotionPrice;
             product.Warranty = productVm.Warranty;
             product.HomeFlag = productVm.HomeFlag;
+            product.HotFlag = productVm.HotFlag;
             product.ViewCount = productVm.ViewCount;
 
             product.CreatedDate = productVm.CreatedDate;
@@ -87,6 +88,8 @@ namespace VjetEcommerce.Web.Infrastructure.Extensions
             product.MetaKeyword = productVm.MetaKeyword;
             product.MetaDescription = productVm.MetaDescription;
             product.Status = productVm.Status;
+            product.Tags= productVm.Tags;
+            product.Quantity = productVm.Quantity;
         }
     }
 }

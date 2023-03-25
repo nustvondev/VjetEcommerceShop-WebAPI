@@ -76,6 +76,18 @@
     <Compile Include="Migrations\202303080540289_Intergrate-AspIdentity.designer.cs">
       <DependentUpon>202303080540289_Intergrate-AspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303220811378_AddTagFeild.cs" />
+    <Compile Include="Migrations\202303220811378_AddTagFeild.designer.cs">
+      <DependentUpon>202303220811378_AddTagFeild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303250812079_addContentTable.cs" />
+    <Compile Include="Migrations\202303250812079_addContentTable.designer.cs">
+      <DependentUpon>202303250812079_addContentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303251802082_AddMoreQuantitty.cs" />
+    <Compile Include="Migrations\202303251802082_AddMoreQuantitty.designer.cs">
+      <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -121,6 +133,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303080540289_Intergrate-AspIdentity.resx">
       <DependentUpon>202303080540289_Intergrate-AspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303220811378_AddTagFeild.resx">
+      <DependentUpon>202303220811378_AddTagFeild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303250812079_addContentTable.resx">
+      <DependentUpon>202303250812079_addContentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303251802082_AddMoreQuantitty.resx">
+      <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

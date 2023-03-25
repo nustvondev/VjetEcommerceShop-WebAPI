@@ -12,6 +12,7 @@ using VjetEcommerce.Web.Models;
 namespace VjetEcommerce.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryService _postCategoryService;
