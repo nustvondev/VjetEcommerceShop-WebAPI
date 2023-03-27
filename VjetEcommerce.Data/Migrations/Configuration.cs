@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Data.Entity.Validation;
+    using System.Diagnostics;
     using System.Linq;
     using VjetEcommerce.Common;
     using VjetEcommerce.Model.Models;
@@ -18,6 +20,8 @@
             CreateProductCategorySample(context);
             CreateSlide(context);
             //  This method will be called after migrating to the latest version.
+            CreatePage(context);
+            CreateContactDetail(context);
         }
         private void CreateUser(VjetEcommerceDbContext context)
         {
@@ -120,6 +124,80 @@
                 };
                 context.Slides.AddRange(listSlide);
                 context.SaveChanges();
+            }
+        }
+
+        private void CreatePage(VjetEcommerceDbContext context)
+        {
+            if (context.Pages.Count() == 0)
+            {
+                try
+                {
+                    var page = new Page()
+                    {
+                        Name = "Giới thiệu",
+                        Alias = "gioi-thieu",
+                        Content = @"VJET TIKI là một trang thương mại điện tử chuyên cung cấp các sản phẩm chất lượng cao với giá cả hợp lý nhất. Tại VJET TIKI, chúng tôi cam kết mang đến cho khách hàng những trải nghiệm mua sắm tuyệt vời nhất với một hệ thống đặt hàng và giao hàng nhanh chóng, chính xác và tin cậy.
+
+Chúng tôi cung cấp đa dạng các sản phẩm từ thực phẩm, thời trang, gia dụng, công nghệ, đồ chơi cho đến sản phẩm dành cho các bé yêu. Tất cả đều được chọn lọc kỹ càng từ những thương hiệu uy tín và chất lượng nhất để đảm bảo khách hàng sẽ luôn tìm thấy sản phẩm ưng ý tại VJET TIKI.
+
+Với đội ngũ nhân viên tận tình, chu đáo và giàu kinh nghiệm, chúng tôi luôn sẵn sàng giúp đỡ khách hàng trong quá trình mua sắm và giải đáp mọi thắc mắc của khách hàng. Hãy đến với VJET TIKI để trải nghiệm mua sắm trực tuyến tuyệt vời nhất và có được những sản phẩm tốt nhất cho gia đình bạn!",
+                        Status = true
+
+                    };
+                    context.Pages.Add(page);
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var eve in ex.EntityValidationErrors)
+                    {
+                        Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void CreateContactDetail(VjetEcommerceDbContext context)
+        {
+            if (context.ContactDetails.Count() == 0)
+            {
+                try
+                {
+                    var contactDetail = new ContactDetail()
+                    {
+                        Name = "Văn phòng VJET TIKI",
+                        Address = "10/80C XL Hà Nội, Phường Tân Phú, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
+                        Email = "vjetgolang@vjetgolang.onmicrosoft.com",
+                        Lat = 10.8555880871146,
+                        Lng = 106.78510077999104,
+                        Phone = "0987654321",
+                        Website = "https://github.com/vjetgolangs",
+                        Other = "",
+                        Status = true
+                        
+
+                    };
+                    context.ContactDetails.Add(contactDetail);
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var eve in ex.EntityValidationErrors)
+                    {
+                        Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
+                        }
+                    }
+                }
+
             }
         }
     }

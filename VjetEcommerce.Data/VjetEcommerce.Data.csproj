@@ -88,9 +88,35 @@
     <Compile Include="Migrations\202303251802082_AddMoreQuantitty.designer.cs">
       <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303270316591_addFKTag.cs" />
+    <Compile Include="Migrations\202303270316591_addFKTag.designer.cs">
+      <DependentUpon>202303270316591_addFKTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270459457_addContactDetail.cs" />
+    <Compile Include="Migrations\202303270459457_addContactDetail.designer.cs">
+      <DependentUpon>202303270459457_addContactDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270504547_addContactDetail1.cs" />
+    <Compile Include="Migrations\202303270504547_addContactDetail1.designer.cs">
+      <DependentUpon>202303270504547_addContactDetail1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270606423_addFeedBackTable.cs" />
+    <Compile Include="Migrations\202303270606423_addFeedBackTable.designer.cs">
+      <DependentUpon>202303270606423_addFeedBackTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270608566_addFeedBackTable2.cs" />
+    <Compile Include="Migrations\202303270608566_addFeedBackTable2.designer.cs">
+      <DependentUpon>202303270608566_addFeedBackTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303271150378_addCustomerId.cs" />
+    <Compile Include="Migrations\202303271150378_addCustomerId.designer.cs">
+      <DependentUpon>202303271150378_addCustomerId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContactDetailRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
@@ -142,6 +168,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303251802082_AddMoreQuantitty.resx">
       <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270316591_addFKTag.resx">
+      <DependentUpon>202303270316591_addFKTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270459457_addContactDetail.resx">
+      <DependentUpon>202303270459457_addContactDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270504547_addContactDetail1.resx">
+      <DependentUpon>202303270504547_addContactDetail1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270606423_addFeedBackTable.resx">
+      <DependentUpon>202303270606423_addFeedBackTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270608566_addFeedBackTable2.resx">
+      <DependentUpon>202303270608566_addFeedBackTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303271150378_addCustomerId.resx">
+      <DependentUpon>202303271150378_addCustomerId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using VjetEcommerce.Model;
 using VjetEcommerce.Model.Models;
 
 namespace VjetEcommerce.Data
@@ -31,6 +32,8 @@ namespace VjetEcommerce.Data
         public DbSet<Tag> Tags { set; get; }
 
         public DbSet<Error> Errors { set; get; }
+        public DbSet<ContactDetail> ContactDetails { set; get; }
+        public DbSet<Feedback> Feedbacks { set; get; }
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
 
         public static VjetEcommerceDbContext Create()

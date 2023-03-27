@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Owin.Security.OAuth;
+using System;
 using System.Web.Http;
 
 namespace VjetEcommerce.Web
@@ -13,6 +12,8 @@ namespace VjetEcommerce.Web
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -1,4 +1,5 @@
-﻿using VjetEcommerce.Model.Models;
+﻿using System;
+using VjetEcommerce.Model.Models;
 using VjetEcommerce.Web.Models;
 
 namespace VjetEcommerce.Web.Infrastructure.Extensions
@@ -90,6 +91,28 @@ namespace VjetEcommerce.Web.Infrastructure.Extensions
             product.Status = productVm.Status;
             product.Tags= productVm.Tags;
             product.Quantity = productVm.Quantity;
+        }
+
+        public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)
+        {
+            feedback.Name = feedbackVm.Name;
+            feedback.Email = feedbackVm.Email;
+            feedback.Message = feedbackVm.Message;
+            feedback.Status = feedbackVm.Status;
+            feedback.CreatedDate = DateTime.Now;
+        }
+        public static void UpdateOrder(this Order order, OrderViewModel orderVm)
+        {
+            order.CustomerName = orderVm.CustomerName;
+            order.CustomerAddress = orderVm.CustomerAddress;
+            order.CustomerEmail = orderVm.CustomerEmail;
+            order.CustomerPhone = orderVm.CustomerPhone;
+            order.CustomerMessage = orderVm.CustomerMessage;
+            order.PaymentMethod = orderVm.PaymentMethod;
+            order.CreatedDate = DateTime.Now;
+            order.CreatedBy = orderVm.CreatedBy;
+            order.Status = orderVm.Status;
+            order.CustomerId = orderVm.CustomerId;
         }
     }
 }

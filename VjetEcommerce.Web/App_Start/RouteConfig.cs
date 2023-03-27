@@ -8,6 +8,15 @@ namespace VjetEcommerce.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
+            routes.MapRoute(
+                name: "Contact",
+                url: "lien-he.html",
+                defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+               );
 
             routes.MapRoute(
       name: "Search",
@@ -21,6 +30,30 @@ namespace VjetEcommerce.Web
          defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
          namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
      );
+            routes.MapRoute(
+              name: "Register",
+              url: "dang-ky.html",
+              defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
+              namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+          );
+            routes.MapRoute(
+            name: "Cart",
+            url: "gio-hang.html",
+            defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
+            namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+        );
+            routes.MapRoute(
+           name: "Checkout",
+           url: "thanh-toan.html",
+           defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
+           namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+       );
+            routes.MapRoute(
+           name: "Page",
+           url: "trang/{alias}.html",
+           defaults: new { controller = "Page", action = "Checkout", alias = UrlParameter.Optional },
+           namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+       );
             routes.MapRoute(
            name: "About",
            url: "gioi-thieu.html",
@@ -38,6 +71,12 @@ namespace VjetEcommerce.Web
              name: "Product",
              url: "{alias}.p-{productId}.html",
              defaults: new { controller = "Product", action = "Detail", productId = UrlParameter.Optional },
+               namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
+         );
+            routes.MapRoute(
+             name: "TagList",
+             url: "tag/{tagId}.html",
+             defaults: new { controller = "Product", action = "ListByTag", tagId = UrlParameter.Optional },
                namespaces: new string[] { "VjetEcommerce.Web.Controllers" }
          );
 
