@@ -1,5 +1,8 @@
 ﻿namespace VjetEcommerce.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
@@ -22,38 +25,39 @@
             //  This method will be called after migrating to the latest version.
             CreatePage(context);
             CreateContactDetail(context);
+            CreateUser(context);
         }
+
         private void CreateUser(VjetEcommerceDbContext context)
         {
-
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
-            //    var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new VjetEcommerceDbContext()));
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new VjetEcommerceDbContext()));
 
-            //    var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new VjetEcommerceDbContext()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new VjetEcommerceDbContext()));
 
-            //    var user = new ApplicationUser()
-            //    {
-            //        UserName = "vjetgolang",
-            //        Email = "vjetnodestudio@gmail.com",
-            //        EmailConfirmed = true,
-            //        BirthDay = DateTime.Now,
-            //        FullName = "Nguyen Huu Hoa"
+            var user = new ApplicationUser()
+            {
+                UserName = "vjetgolang",
+                Email = "vjetnodestudio@gmail.com",
+                EmailConfirmed = true,
+                BirthDay = DateTime.Now,
+                FullName = "Nguyen Huu Hoa"
+            };
+            if (manager.Users.Count(x => x.UserName == "vjetgolang") == 0)
+            {
+                manager.Create(user, "123654$");
 
-            //    };
+                if (!roleManager.Roles.Any())
+                {
+                    roleManager.Create(new IdentityRole { Name = "Admin" });
+                    roleManager.Create(new IdentityRole { Name = "User" });
+                }
 
-            //    manager.Create(user, "123654$");
+                var adminUser = manager.FindByEmail("vjetnodestudio@gmail.com");
 
-            //    if (!roleManager.Roles.Any())
-            //    {
-            //        roleManager.Create(new IdentityRole { Name = "Admin" });
-            //        roleManager.Create(new IdentityRole { Name = "User" });
-            //    }
-
-            //    var adminUser = manager.FindByEmail("vjetnodestudio@gmail.com");
-
-            //    manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
-            //}
+                manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            }
         }
 
         private void CreateProductCategorySample(VjetEcommerce.Data.VjetEcommerceDbContext context)
@@ -75,6 +79,7 @@
                 context.SaveChanges();
             }
         }
+
         private void CreateFooter(VjetEcommerceDbContext context)
         {
             if (context.Footers.Count(x => x.ID == CommonConstants.DefaultFooterId) == 0)
@@ -82,6 +87,7 @@
                 string content = "";
             }
         }
+
         private void CreateSlide(VjetEcommerceDbContext context)
         {
             if (context.Slides.Count() == 0)
@@ -143,7 +149,6 @@ Chúng tôi cung cấp đa dạng các sản phẩm từ thực phẩm, thời t
 
 Với đội ngũ nhân viên tận tình, chu đáo và giàu kinh nghiệm, chúng tôi luôn sẵn sàng giúp đỡ khách hàng trong quá trình mua sắm và giải đáp mọi thắc mắc của khách hàng. Hãy đến với VJET TIKI để trải nghiệm mua sắm trực tuyến tuyệt vời nhất và có được những sản phẩm tốt nhất cho gia đình bạn!",
                         Status = true
-
                     };
                     context.Pages.Add(page);
                     context.SaveChanges();
@@ -159,7 +164,6 @@ Với đội ngũ nhân viên tận tình, chu đáo và giàu kinh nghiệm, ch
                         }
                     }
                 }
-
             }
         }
 
@@ -180,8 +184,6 @@ Với đội ngũ nhân viên tận tình, chu đáo và giàu kinh nghiệm, ch
                         Website = "https://github.com/vjetgolangs",
                         Other = "",
                         Status = true
-                        
-
                     };
                     context.ContactDetails.Add(contactDetail);
                     context.SaveChanges();
@@ -197,7 +199,6 @@ Với đội ngũ nhân viên tận tình, chu đáo và giàu kinh nghiệm, ch
                         }
                     }
                 }
-
             }
         }
     }

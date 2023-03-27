@@ -95,6 +95,7 @@
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
                 $scope.products = result.data.Items;
+                console.log(result.data.Items);
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;

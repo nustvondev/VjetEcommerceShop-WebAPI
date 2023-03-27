@@ -148,5 +148,14 @@ namespace VjetEcommerce.Web.Controllers
 
             return View();
         }
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOut()
+        {
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
