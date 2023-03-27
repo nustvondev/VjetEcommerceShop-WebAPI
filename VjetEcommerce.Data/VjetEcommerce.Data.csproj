@@ -40,6 +40,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,7 +57,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\202303060726545_InitiaDB.cs" />
+    <Compile Include="Migrations\202303060726545_InitiaDB.designer.cs">
+      <DependentUpon>202303060726545_InitiaDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303061822564_AddErrorTable.cs" />
+    <Compile Include="Migrations\202303061822564_AddErrorTable.designer.cs">
+      <DependentUpon>202303061822564_AddErrorTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303080540289_Intergrate-AspIdentity.cs" />
+    <Compile Include="Migrations\202303080540289_Intergrate-AspIdentity.designer.cs">
+      <DependentUpon>202303080540289_Intergrate-AspIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303220811378_AddTagFeild.cs" />
+    <Compile Include="Migrations\202303220811378_AddTagFeild.designer.cs">
+      <DependentUpon>202303220811378_AddTagFeild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303250812079_addContentTable.cs" />
+    <Compile Include="Migrations\202303250812079_addContentTable.designer.cs">
+      <DependentUpon>202303250812079_addContentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303251802082_AddMoreQuantitty.cs" />
+    <Compile Include="Migrations\202303251802082_AddMoreQuantitty.designer.cs">
+      <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270316591_addFKTag.cs" />
+    <Compile Include="Migrations\202303270316591_addFKTag.designer.cs">
+      <DependentUpon>202303270316591_addFKTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270459457_addContactDetail.cs" />
+    <Compile Include="Migrations\202303270459457_addContactDetail.designer.cs">
+      <DependentUpon>202303270459457_addContactDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270504547_addContactDetail1.cs" />
+    <Compile Include="Migrations\202303270504547_addContactDetail1.designer.cs">
+      <DependentUpon>202303270504547_addContactDetail1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270606423_addFeedBackTable.cs" />
+    <Compile Include="Migrations\202303270606423_addFeedBackTable.designer.cs">
+      <DependentUpon>202303270606423_addFeedBackTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303270608566_addFeedBackTable2.cs" />
+    <Compile Include="Migrations\202303270608566_addFeedBackTable2.designer.cs">
+      <DependentUpon>202303270608566_addFeedBackTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303271150378_addCustomerId.cs" />
+    <Compile Include="Migrations\202303271150378_addCustomerId.designer.cs">
+      <DependentUpon>202303271150378_addCustomerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303271819112_updateBase.cs" />
+    <Compile Include="Migrations\202303271819112_updateBase.designer.cs">
+      <DependentUpon>202303271819112_updateBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContactDetailRepository.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
+    <Compile Include="Repositories\FooterRepository.cs" />
+    <Compile Include="Repositories\MenuGroupRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
+    <Compile Include="Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PageRepository.cs" />
+    <Compile Include="Repositories\PostCategoryRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\PostTagRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductTagRepository.cs" />
+    <Compile Include="Repositories\SlideRepository.cs" />
+    <Compile Include="Repositories\SupportOnlineRepository.cs" />
+    <Compile Include="Repositories\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\VisitorStatisticRepository.cs" />
+    <Compile Include="VjetEcommerceDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -62,6 +149,51 @@
       <Project>{3926105b-191c-44f9-a236-90b3f9d50d91}</Project>
       <Name>VjetEcommerce.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VjetEcommerce.Model\VjetEcommerce.Model.csproj">
+      <Project>{8eaefb72-582f-4ed2-9e13-1755ccf26b12}</Project>
+      <Name>VjetEcommerce.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202303060726545_InitiaDB.resx">
+      <DependentUpon>202303060726545_InitiaDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303061822564_AddErrorTable.resx">
+      <DependentUpon>202303061822564_AddErrorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303080540289_Intergrate-AspIdentity.resx">
+      <DependentUpon>202303080540289_Intergrate-AspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303220811378_AddTagFeild.resx">
+      <DependentUpon>202303220811378_AddTagFeild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303250812079_addContentTable.resx">
+      <DependentUpon>202303250812079_addContentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303251802082_AddMoreQuantitty.resx">
+      <DependentUpon>202303251802082_AddMoreQuantitty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270316591_addFKTag.resx">
+      <DependentUpon>202303270316591_addFKTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270459457_addContactDetail.resx">
+      <DependentUpon>202303270459457_addContactDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270504547_addContactDetail1.resx">
+      <DependentUpon>202303270504547_addContactDetail1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270606423_addFeedBackTable.resx">
+      <DependentUpon>202303270606423_addFeedBackTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303270608566_addFeedBackTable2.resx">
+      <DependentUpon>202303270608566_addFeedBackTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303271150378_addCustomerId.resx">
+      <DependentUpon>202303271150378_addCustomerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303271819112_updateBase.resx">
+      <DependentUpon>202303271819112_updateBase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
